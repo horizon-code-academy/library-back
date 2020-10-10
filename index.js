@@ -1,5 +1,6 @@
 const studentroutes = require("./src/routes/student");
 const bookroutes = require("./src/routes/book");
+const userroutes = require("./src/routes/user");
 
 //express import
 const express = require("express");
@@ -30,3 +31,4 @@ const server = app.listen(8081, () => {
 });
 studentroutes(app);
 bookroutes(app);
+userroutes(app);
