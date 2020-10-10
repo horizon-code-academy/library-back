@@ -18,8 +18,14 @@ async function getoneuser(req, res) {
 async function addusers(req, res) {
   {
     const newuser = new userModel(req.body);
-    newuser.save();
-    res.send("users add");
+    newuser
+      .save()
+      .then(() => {
+        res.send("user add succeed");
+      })
+      .catch((e) => {
+        res.send("user add fail");
+      });
   }
 }
 async function deleteuser(req, res) {
