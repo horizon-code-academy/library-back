@@ -21,10 +21,10 @@ async function addusers(req, res) {
     newuser
       .save()
       .then(() => {
-        res.send("user add succeed");
+        res.status(201).send({ message: "user add succeed" });
       })
       .catch((e) => {
-        res.send("user add fail");
+        res.status(400).send({ message: "user add fail" });
       });
   }
 }
