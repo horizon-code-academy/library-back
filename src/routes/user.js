@@ -1,4 +1,5 @@
 const {
+  login,
   getallusers,
   getoneuser,
   addusers,
@@ -8,6 +9,8 @@ const {
 const app = require("../../index");
 
 module.exports = (app) => {
+  app.post("/login", login);
+
   app.get("/users", getallusers);
   app.get("/users/:id", getoneuser);
   //create users

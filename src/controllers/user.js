@@ -1,5 +1,9 @@
 const userModel = require("../models/user");
 
+async function login(req, res) {
+  res.send("login succeed");
+}
+
 async function getallusers(req, res) {
   /**base de donner de users */
   const users = await userModel.find(req.query).populate("user").exec();
@@ -37,6 +41,7 @@ async function updateuser(req, res) {
   res.send("user update successfuly");
 }
 module.exports = {
+  login,
   getallusers,
   getoneuser,
   addusers,
