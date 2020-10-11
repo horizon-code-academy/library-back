@@ -1,11 +1,13 @@
-const { getallbooks, getonebook, addbooks, updatebook, deletebook } = require('../controllers/book');
-const app = require('../index');
+import { requireAuth } from '../config/passport';
+import { requireAdmin } from '../config/roles';
+import { getallbooks, getonebook, addbooks, updatebook, deletebook } from '../controllers/book';
+
 module.exports = (app) => {
-  app.get('/books', getallbooks);
-  app.get('/books/:id', getonebook);
+  app.get('/books', requireAuth, getallbooks);
+  app.get('/books/:id', requireAuth, getonebook);
   //create books
-  app.post('/books', addbooks);
-  app.delete('/books/:id', deletebook);
+  app.post('/books', requireAuth, addbooks);
+  app.delete('/books/:id', requireAuth, requireAdmin, deletebook);
   //update book
-  app.put('/books/:id', updatebook);
+  app.put('/books/:id', requireAuth, updatebook);
 };
