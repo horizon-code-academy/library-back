@@ -9,6 +9,7 @@ import bodyparser from 'body-parser';
 import studentroutes from './routes/student';
 import bookroutes from './routes/book';
 import userroutes from './routes/user';
+import authroutes from './routes/auth';
 import { MONGODB_URI, PORT } from './config/env';
 
 const app = express();
@@ -34,3 +35,4 @@ const server = app.listen(PORT, () => {
 studentroutes(app);
 bookroutes(app);
 userroutes(app);
+authroutes(app);
